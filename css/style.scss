@@ -9,10 +9,9 @@ html{
 
 body{
   @include flex(center, center, row);
-  @include size(100vh, 100%);
+  @include size(100vh, 960px);
   box-sizing: border-box;
-
-  margin: 0;
+  margin: auto;
 }
 
 .data-output, .data-input{
@@ -35,8 +34,9 @@ h3{
 
 .data-output{
   background-color: $background-color-3;
-  height: 100%;
-  width: calc(100% - 400px);
+  height: 800px;
+  width: 60%;
+  text-align: center;
 }
 
 [data-title='integer']{
@@ -63,7 +63,7 @@ h3{
   align-items: flex-start;
   height: 100vh;
   padding: 80px;
-  >*{width: 400px;}
+  >*{width: 300px;}
 }
 
 p{
@@ -80,9 +80,9 @@ form{
 
 [type='range']{
   position: absolute;
-  top:4.3em;
-  left: 0;
-  width: calc(100% - 4px);
+  top:48px;
+  left: -2px;
+  width: 100%;
   height: 1px;
   -webkit-appearance: none;
   &:hover{
@@ -90,6 +90,11 @@ form{
   }
 }
 
+label{
+  font-weight: 500;
+  font-size: 14px;
+  color:$font-color-2;
+}
 input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 1px;
@@ -101,10 +106,10 @@ input[type=range]::-webkit-slider-runnable-track {
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     border: none;
-    border-bottom: 2px solid $font-color-1;
+    border-bottom: 2px solid $dark-blue-3;
     height: 10px;
     width: 15px;
-    margin-top: -9px;
+    margin-top: -8px;
 }
 
 input[type=range]:focus {

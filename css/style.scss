@@ -1,0 +1,248 @@
+//Comment for compiler
+@import '../../_ntnx/variables';
+@import '../../_ntnx/mixins';
+html{
+  @include font;
+  background-color: -color-3;
+  overflow: hidden;
+}
+
+body{
+  @include flex(center, center, row);
+  @include size(100vh, 100%);
+  box-sizing: border-box;
+
+  margin: 0;
+}
+
+.data-output, .data-input{
+  @include flex(center, center, column);
+}
+
+h1{
+  font:$h1;
+}
+
+h3{
+  font:$h3;
+}
+
+[data-type='secondary']{
+  color:$font-color-2;
+}
+
+//data ouput
+
+.data-output{
+  background-color: $background-color-3;
+  height: 100%;
+  width: calc(100% - 400px);
+}
+
+[data-title='integer']{
+  font-weight: 200;
+  font-size: 2em;
+}
+// .box{
+//   @include flex(center, center, column);
+//   background-color: $blue-1;
+//   padding:30px;
+//   @include shadow;
+//   color:white;
+// }
+.integer{
+  margin-top: 0;
+  font-weight: 400;
+  color:$font-color-3;
+}
+
+
+// data input
+
+.data-input{
+  align-items: flex-start;
+  height: 100vh;
+  padding: 80px;
+  >*{width: 400px;}
+}
+
+p{
+  line-height: 1.5;
+}
+
+form{
+  @include flex(flex-start, space-between, column);
+  margin-top: 20px;
+  position: relative;
+  display: block;
+  >*{ margin-bottom: 20px;}
+}
+
+[type='range']{
+  position: absolute;
+  top:4.3em;
+  left: 0;
+  width: calc(100% - 4px);
+  height: 1px;
+  -webkit-appearance: none;
+  &:hover{
+    cursor: ew-resize;
+  }
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 1px;
+    left: 0;
+    border: none;
+    background-color: $blue-1;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    border-bottom: 2px solid $font-color-1;
+    height: 10px;
+    width: 15px;
+    margin-top: -9px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+}
+
+#core2{
+  display: none;
+}
+
+input:not([type=range]){
+  @include size(auto, 100%);
+  border-radius: 0px;
+  border: none;
+  border-bottom: 1px solid $border-color-2;
+  appearance:none;
+  will-change: border-color;
+  @include transition(border-color);
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding-bottom: 5px;
+  font:$h1;
+  font-size: 20px;
+  &:focus{
+    outline:none;
+    border-color:$blue-1;
+  }
+}
+
+
+.primary{
+  @include primary;
+}
+
+span{
+  margin-top: 10px;
+}
+
+
+.deck{
+  @include size(auto, 100%);
+  @include flex(center, space-between, row);
+  flex-wrap: wrap;
+  margin-top: 20px;
+  >*{margin-bottom: 10px;}
+
+  .card{
+    border: 1px solid $border-color-3;
+    position:relative;
+    @include flex(flex-start, center, column);
+
+    @include size(60px, 100%);
+    padding: 20px;
+    border-radius: 4px;
+    background-color: white;
+
+    &:hover{
+      @include shadow;
+    }
+    &::before{
+      content:'';
+      left: -1px;
+      position: absolute;
+      border-radius: 4px 0 0 4px;
+      @include size(100%, 2px);
+      background-color: $blue-1;
+
+    }
+  }
+}
+
+//
+
+@media only screen and (max-width:500px){
+
+  body{
+    @include flex(center, center, column);
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  .data-output, .data-input {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+  }
+
+  .data-output{
+    position: fixed;
+    height: 200px;
+    bottom:0;
+    z-index: 20;
+    display: none;
+  }
+
+  .data-input{
+    top:0;
+  }
+
+  .data-input > *{
+    width: 80%;
+    height: auto;
+  }
+
+  form{
+    height: auto;
+    display: block;
+  }
+
+   input[type='range']{
+     opacity: 0;
+   }
+}
+
+
+// @media screen and (-webkit-min-device-pixel-ratio:0) {
+//     input[type="email"]:hover,
+//     input[type="number"]:hover,
+//     input[type="search"]:hover,
+//     input[type="text"]:hover,
+//     input[type="tel"]:hover,
+//     input[type="url"]:hover,
+//     input[type="password"]:hover,
+//     textarea:hover,
+//     select:hover{font-size: initial;}
+// }
+// @media (min-width: 768px) {
+//     input[type="email"]:hover,
+//     input[type="number"]:hover,
+//     input[type="search"]:hover,
+//     input[type="text"]:hover,
+//     input[type="tel"]:hover,
+//     input[type="url"]:hover,
+//     input[type="password"]:hover,
+//     textarea:hover,
+//     select:hover{font-size: inherit;}
+// }

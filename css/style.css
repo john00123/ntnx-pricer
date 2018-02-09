@@ -5,7 +5,7 @@ html {
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
   background-color: -color-3;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -33,6 +33,7 @@ body {
   width: 100%;
   box-sizing: border-box;
   background-color: #F2F4F6;
+  margin: 0;
 }
 
 header {
@@ -43,7 +44,9 @@ header {
 }
 
 .deck {
+  position: relative;
   padding: 30px;
+  margin-bottom: 100px;
 }
 
 .deck > * {
@@ -85,4 +88,15 @@ header {
 
 summary {
   outline: none;
+}
+
+.result {
+  height: 120px;
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  display: block;
+  margin: 0;
 }
